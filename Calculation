@@ -61,12 +61,11 @@ P(X | Tonsilitis = No)P(Tonsilitis = No) = (4/9) * (3/9) * (3/9) * (9/18) = 0.02
 
 Dividing both results by the evidence P(X) to normalise
 
-P(X) = P(Temperature = hot) * P(Aches = Yes) * P(Sore Throat = Yes)
-P(X) = (5/18) * (10/18) * (10/18) 
-P(X) = 0.085
+0.036 + 0.025 =
 
-Dividing results by the value:
-P(Tonsilitis = Yes) = 0.036/0.085 = 0.42
-P(Tonsilitis = No) = 0.025/0.085 = 0.31
+0.061
 
-P(Tonsilitis = Yes) > P(Tonsilitis = No)
+0.036/0.061= 0.059 = OVERALL YES OF YOU HAVING TONSLITIS
+0.025/0.061=0.041 = OVERALL NO OF YOU HAVING TONSLITIS
+
+
