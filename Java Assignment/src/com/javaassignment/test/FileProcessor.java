@@ -1,42 +1,44 @@
 package com.javaassignment.test;
 
+import java.awt.List;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class FileProcessor
 {
 	
   
 
-	public static void main(String[] args) 
+	public static void fileprocessor(String name, String tempval, String acheval, String throatval) 
 	{
 		
-
-		try (PrintWriter writer = new PrintWriter(new File("test.csv")))
-		{
+		File file = new File("\\Files\\Patients"); 
+		  
+	    try 
+	    { 
+	        // create FileWriter object with file as parameter 
+	        FileWriter outputfile = new FileWriter(file); 
+	  
+	        // create CSVWriter object filewriter object as parameter 
+	        CSVWriter writer = new CSVWriter(outputfile); 
+	  
+	        // create a List which contains String array 
+	        List<String[]> data = new ArrayList<String[]>(); 
+	        data.add(new String[] { "Name", "Temperature", "Aches", "Sore Throat", "Tonsilitis" }); 
+	        data.add(new String[] {});  
+	        writer.writeAll(data); 
+	  
+	        // closing writer connection 
+	        writer.close(); 
+	    } 
+	    catch (IOException e) 
+	    { 
+    		
     	
-			StringBuilder sb = new StringBuilder();
-			sb.append("Patient Number,");
-			sb.append("Patient Name");
-			sb.append("Patient ");
-			sb.append('\n');
 
-			sb.append("1");
-			sb.append(',');
-			sb.append("Ol");
-			sb.append('\n');
-
-			writer.write(sb.toString());
-
-      		System.out.println("done!");
-    	}
-     
-    	catch (FileNotFoundException e) 
-    	{
-    		System.out.println(e.getMessage());
-    	}
-
+	    }
 	}
 
 }

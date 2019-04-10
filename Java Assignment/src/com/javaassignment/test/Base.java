@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Base 
 {
-	public static void base()
+	public Base()
 	{
 		File Base;
 		Scanner fileScanner;

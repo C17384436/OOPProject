@@ -1,0 +1,71 @@
+Temperature       Aches      Sore throat       Tonsillitis
+hot                Yes          No                  Yes
+hot                Yes          Yes                 No
+hot                 No          No                  No
+normal              No          Yes                 Yes
+cool               Yes          Yes                 No
+cool               Yes          No                  no
+cool                No          No                  yes
+normal              No          Yes                 yes
+cool                No          No                  no
+normal             Yes          Yes                 yes
+normal             Yes          Yes                 yes
+normal             No           Yes                 yes
+hot                Yes          No                  no
+normal             Yes          No                  no
+hot                Yes          Yes                 no
+normal              No          Yes                 yes
+cool               Yes          No                  no
+normal             Yes          Yes                 yes
+
+
+Tonsilitis(Y) - 9/18
+Tonsilitis(N) - 9/18
+
+Temperature(hot) - 5/18 -   1/9(Y)    -   4/9(N)
+Temperatre(normal) - 8/18 -  7/9(Y)   -   1/9(N)
+Temperature(cool) - 5/18  -  1/9(Y)   -  4/9(N)
+
+5 + 8 + 5 = 18 (100%)  
+1 + 7 + 1 = 9 (100%)
+4 + 1 + 4 = 9 (100%)
+
+Aches(Y) - 10/18   -   7/9(Y)   -    3/9(N)
+Aches(N) - 8/18   -    2/9(Y)  -    6/9(N)
+
+10 + 8 = 18 (100%)
+7 + 2 = 9 (100%)
+3 + 6 = 9 (100%)
+
+Sore Throat(Y) - 10/18  - 7/9(Y)  -  3/9(N)
+Sore Throat(N) - 8/18 -  2/9(Y)  - 6/9(N)
+
+10 + 8 = 18 (100%)
+7 + 2 = 9 (100%)
+3 + 6 = 9 (100%)
+
+P(Temperature = Hot | Toncilitis = Yes) = 1/9
+P(Aches = Yes | Toncilitis = Yes) = 7/9
+P(Sore Throat = Yes | Toncilitis = Yes) = 7/9
+P(Toncilitis = Yes) = 9/18
+
+P(Temperature = Hot | Toncilitis = No) = 4/9
+P(Aches = Yes | Toncilitis = No) = 3/9
+P(Sore Throat = Yes | Toncilitis = No) = 3/9
+P(Toncilitis = No) = 9/18
+
+P(X|C)P(C), or P(X|Tonsilitis = Yes)P(Tonsilitis = Yes)
+
+P(X | Tonsilitis = Yes)P(Tonsilitis = Yes) = (1/9) * (7/9) * (7/9) * (9/18) = 0.036
+P(X | Tonsilitis = No)P(Tonsilitis = No) = (4/9) * (3/9) * (3/9) * (9/18) = 0.025
+
+Dividing both results by the evidence P(X) to normalise
+
+0.036 + 0.025 =
+
+0.061
+
+0.036/0.061= 0.059 = OVERALL YES OF YOU HAVING TONSLITIS
+0.025/0.061=0.041 = OVERALL NO OF YOU HAVING TONSLITIS
+
+
