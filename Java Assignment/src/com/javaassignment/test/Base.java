@@ -10,6 +10,7 @@ public class Base
 	private String fileName;
 	private Scanner fileScanner;
 	private File Base;
+	ArrayList<String[]> list = new ArrayList<String[]>();
 	
 	public Base(String fileName)
 	{
@@ -19,14 +20,14 @@ public class Base
 	
 	public void OpenFile()
 	{
-		setBase(new File("Files\\CalculationBase.csv"));
+		setBase(new File(getFileName()));
 	}
 	
 	String[] readfile()
 	{
 	
 		
-		ArrayList<String[]> list = new ArrayList<String[]>();
+		
 		
 		
 		

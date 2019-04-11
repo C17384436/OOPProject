@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -95,7 +96,7 @@ public class GUI_Menu extends JFrame implements ActionListener
 		}
 		else if(anything.getSource() == base)
 		{
-			Base myBase = new Base();
+			Base myBase = new Base("Files\\CalculationBase.csv");
 		}
 			
 	}
