@@ -2,10 +2,117 @@ package com.javaassignment.test;
 
 public class Calculations
 {
-	public static void calculations()
+	private float ptempY;
+	private float ptempN;
+ 	private float pachesY;
+ 	private float pachesN;
+ 	private float pthroatY;
+ 	private float pthroatN;
+ 	private float ptonsY;
+ 	private float ptonsN;
+ 	
+ 	private int hotcount;
+ 	private int coolcount;
+ 	private int normalcount;
+ 	private int acheYcount;
+	private int acheNcount;
+	private int throatYcount;
+	private int throatNcount;
+	private int tonsYcount;
+	private int tonsNcount;
+	
+ 	private String temperature;
+ 	private String aches;
+ 	private String sorethroat;
+ 	private String tonsilitis;
+ 	
+	public Calculations(String tempval, String acheval, String throatval, String[] listARRAY)
 	{
-		if(string2 == "Hot" | string4 == 
 		
+		for(int i = 0; i > listARRAY.length; i++)
+		{
+			if(list[0].equals(tempval) && list[4].equals("Yes")
+			{
+				hotcount++;
+				tonsYcount++;
+			}
+		}
+		
+		if(achecheck == "Yes")
+		{
+			for(int i = 0; i > acheYcount; i++ )
+			{
+				acheYcount++;
+			}
+		}
+		
+		if(achecheck == "No")
+		{
+			for(int i = 0; i > acheNcount; i++ )
+			{
+				acheNcount++;
+			}
+		}
+		
+		if(throatcheck == "Yes")
+		{
+			for(int i = 0; i > throatYcount; i++ )
+			{
+				throatYcount++;
+			}
+		}
+		
+		if(throatcheck == "No")
+		{
+			for(int i = 0; i > throatNcount; i++ )
+			{
+				throatNcount++;
+			}
+			
+		}
+		
+		if(tonscheck == "Yes")
+		{
+			for(int i = 0; i > tonsYcount; i++ )
+			{
+				tonsYcount++;
+			}
+			
+		}
+		
+		if(tonscheck == "No")
+		{
+			for(int i = 0; i > tonsNcount; i++ )
+			{
+				tonsNcount++;
+			}
+		}
+		
+		
+		
+		
+		ptempY = tempval/tonsYcount;
+		ptempN = (hotcount / tonsNcount) | (coolcount / tonsNcount) | (normalcount / tonsNcount);
+		
+		pachesY = acheYcount / tonsYcount;
+		pachesN = acheNcount / tonsNcount;
+		
+		pthroatY = throatYcount / tonsYcount;
+		pthroatN = throatNcount / tonsNcount;
+		
+		if(tempval && acheval.equals("Yes") && throatval.equals("Yes"))
+		{
+			ptonsY = tempval * acheval * throatval;
+			
+		}
+		else if( (tempcheck == "Hot" | tempcheck == "Cool" | tempcheck == "Normal" ) && achecheck !="Yes" && throatcheck != "Yes")
+		{
+			
+			ptonsN =  (hotcount | coolcount | normalcount) + acheNcount + throatNcount;
+		}
+		
+		
+		System.out.println(ptonsY);
 		/*
 			P(Temperature = Hot | Toncilitis = Yes) = 1/9
 			P(Aches = Yes | Toncilitis = Yes) = 7/9
