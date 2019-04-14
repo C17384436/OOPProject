@@ -1,8 +1,10 @@
 /* Java Machine Learning Assignment
  * Author: Adrian Borkowski C17384436
  *Description: The GUI_Menu Class of the Java Assignment. It contains the code for the main menu to be displayed
- *				and for the transition to a different menu through user selection.
- */
+ *				and for the transition to a different (Patient, Doctor or Check Base Calc) menu through user selection.
+ *				The GUI_Menu appears Cyan in colour, with three evenly spaced buttons.
+ */				
+
 
 package com.javaassignment.test;
 
@@ -16,10 +18,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GUI_Menu extends JFrame implements ActionListener
 {
+	
+	//Setting Attributes - Panels, Labels and Buttons
 	private JPanel panel1;
 	private JPanel panel2;
 	private JPanel panel3;
@@ -27,14 +32,21 @@ public class GUI_Menu extends JFrame implements ActionListener
 	private JLabel label1;
 	private JButton patient;
 	private JButton doctor;
-	private JButton base;
+	private JButton accuracy;
+	private float accper;
 	
 	
+	//Constructor
 	public GUI_Menu()
 	{
+		//GUI title shows "Main Menu"
 		super("Main Menu");
 		
+		//setting a grid style layout to make it easier to organise items on screen
 		setLayout(new GridLayout());
+		
+		
+		//creating panels
 		
 		panel1 = new JPanel();
 		panel1.setBackground(Color.cyan);
@@ -56,9 +68,12 @@ public class GUI_Menu extends JFrame implements ActionListener
 		panel4.setPreferredSize(new Dimension(400,40));
 		add(panel4);
 		
+		//creating a label
+		
 		label1 = new JLabel("Welcome to the Main Menu");
 		panel1.add(label1);
 		
+		//creating buttons
 		
 		patient = new JButton("Patient");
 		patient.addActionListener(this);
@@ -70,11 +85,12 @@ public class GUI_Menu extends JFrame implements ActionListener
 		doctor.setPreferredSize(new Dimension(150,50));
 		panel3.add(doctor);
 		
-		base = new JButton("Check Base Calc");
-		base.addActionListener(this);
-		base.setPreferredSize(new Dimension(150,55));
-		panel4.add(base);
+		accuracy = new JButton("Accuracy");
+		accuracy.addActionListener(this);
+		accuracy.setPreferredSize(new Dimension(150,55));
+		panel4.add(accuracy);
 		
+		//grid layout settings
 		
 		setLayout(new GridLayout(4,1));
 		setSize(400,500);
@@ -83,21 +99,27 @@ public class GUI_Menu extends JFrame implements ActionListener
 		
 	public void actionPerformed(ActionEvent anything)
 	{
+		//if the button pressed is patient, it brings the user to the Patient Menu and closes down the current GUI
 		if(anything.getSource() == patient)
 		{
 			GUI_Patient myPatient = new GUI_Patient();
 			setVisible(false); 
 			
 		}
-		else if(anything.getSource() == doctor)
+		//if the button pressed is doctor, it brings the user to the Doctor Menu and closes down the current GUI
+		if(anything.getSource() == doctor)
 		{
 			GUI_Doctor myDoctor = new GUI_Doctor();
 			setVisible(false); 
 		}
-		else if(anything.getSource() == base)
+		
+		if(anything.getSource() == accuracy)
 		{
-			Base myBase = new Base("Files\\CalculationBase.csv");
+			Calculations myCalc = new Calculations();
+			accper = myCalc.acc();
+    		JOptionPane.showMessageDialog(this, "The accuracy of the test model is: " + (accper * 100) + "%");
 		}
+		
 			
 	}
 		
