@@ -40,14 +40,13 @@ public class Calculations
 	
 	private float seventy;
 	private float thirty;
-	private float accYcount;
-	private float accNcount;
 	
-	private String accY;
-	private String accN;
+	private float importcalc;
 	
 	private float bothY;
 	private float bothN;
+	private float correctguess;
+	private float incorrectguess;
 	private float finalpercentage;
 	
 	//Making a scanner variable to call it later in the class
@@ -82,7 +81,7 @@ public class Calculations
 		Base newBase = new Base("C:\\Users\\CalculationBase.csv");
 		
 		newBase.OpenFile();
-		seventylist = newBase.readfile();
+		newlist = newBase.readfile();
 		newBase.closeReadFile();
 		
 		
@@ -189,23 +188,19 @@ public class Calculations
 	
 	public float acc()
 	{
-		seventy = (float)(13 * 0.7);
-		Math.round(seventy);
-		System.out.println(seventy);
 		
+		seventy = Math.round((float)(newlist.size() * 0.7));
 		
-		thirty = (float)(newlist.size() - seventy);
-		Math.round(thirty);
+		thirty = (newlist.size() - seventy);
 		
 		
 		
 		bothY = 0;
 		bothN = 0;
-		accYcount = 0;
-		accNcount = 0;
 		totalY = 0;
 		totalN = 0;
 		normaliser = 0;
+		correctguess = 0;
 		finalpercentage = 0;
 		
 		for(int j = 0; j < seventy; j++)
@@ -227,18 +222,20 @@ public class Calculations
 			newlist.add(seventylist.get(j));
 		}//end of for loop
 		
-		System.out.println();
 		
 		for(int j = 0; j < thirtylist.size(); j++)
 		{
-			calc();
+			tempval = thirtylist.get(j).getTemperature();
+			acheval = thirtylist.get(j).getAches();
+			throatval = thirtylist.get(j).getSorethroat();
+			
+			importcalc = calc();
 			
 			
-			if(totalY >= 0.5)
+			
+			if(importcalc >= 0.5)
 			{
-				accYcount++;
-				accY = "Yes";
-				if(accY.equals("Yes") && thirtylist.get(j).getTonsilitis().equals("Yes"))
+				if(thirtylist.get(j).getTonsilitis().equals("Yes"))
 				{
 					bothY++;
 					System.out.println(bothY);
@@ -246,11 +243,9 @@ public class Calculations
 				
 			}//end of if()
 			
-			if(totalN >= 0.5)
+			if(1.0 - importcalc >= 0.5)
 			{
-				accNcount++;
-				accN = "No";
-				if(accN.equals("No") && thirtylist.get(j).getTonsilitis().equals("No"))
+				if(thirtylist.get(j).getTonsilitis().equals("No"))
 				{
 					bothN++;
 					System.out.println(bothN);
@@ -262,11 +257,14 @@ public class Calculations
 			
 		}//end of for loop
 		
-		normaliser = bothY + bothN;
 		
-		finalpercentage = (bothY) / (normaliser);
+		correctguess = bothY + bothN;
+		incorrectguess = thirtylist.size() - correctguess;
+		System.out.println(correctguess);
 		
-		return bothY;
+		finalpercentage = (correctguess) / (thirtylist.size());
+		
+		return finalpercentage;
 		
 		
 	}//end of acc method
