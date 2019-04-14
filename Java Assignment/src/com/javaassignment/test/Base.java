@@ -25,17 +25,17 @@ public class Base
 	//initialising a new list of Arrays called list
 	ArrayList<Patient> list = new ArrayList<Patient>();
 	
-	//constructor
+	//constructor which sets out a filename for the rest of the class
 	public Base(String fileName)
 	{
-		//the file CalculatedBase.csv is being put into the Base File attribute
+		
 		this.setFileName(fileName);
 	}
 	
 	
 	public void OpenFile()
 	{
-		//the myBase file opens up the file that has been input into the File attribute
+		//this opens up the file that has been input into the File attribute (getting the filename from a different class)
 		setBase(new File(getFileName()));
 	}
 	
@@ -47,8 +47,7 @@ public class Base
 		{	
 			/*the code below uses a scanner to go through the contents of the file that
 			 * has been opened and goes through it line by line. Every line that has some
-			 * elements within it is saved as a String Array, later on inputing them into a 
-			 * list of Arrays
+			 * elements within it is saved as a String Array.
 			 */
 			
 			
@@ -60,15 +59,12 @@ public class Base
 				
 				
 				String line = getFileScanner().nextLine();
+				//Each line becomes split by using a comma as a splitting element
 				String[] lineARRAY = line.split(",");
 				
-				//Each line becomes split by using a comma as a splitting element
-				
+				//adds in a patient to the list, putting in a element into the String array one at a time
 				list.add(new Patient(lineARRAY[0],lineARRAY[1], lineARRAY[2],lineARRAY[3]));
 				
-				
-				//prints out a seperator for every line to make it look cleaner
-				//System.out.print(getFileScanner().next() + " | ");
 				
 			}
 			
@@ -82,6 +78,9 @@ public class Base
 		//returning the list ArrayList
 		return list;
 	}
+	
+	
+	//setters and getters
 	
 	public void closeReadFile()
 	{

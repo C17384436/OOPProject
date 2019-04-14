@@ -1,8 +1,9 @@
 /* Java Machine Learning Assignment
  * Author: Adrian Borkowski C17384436
  *Description: The GUI_Patient Class of the Java Assignment. It provides code for interactive options such as text boxes,
- *				Choice Boxes and buttons which are used to input a Patient's data and to apply it to the algorithm . A seperate
- *				button can also be found which takes the user back to the main menu of the code.
+ *				Choice Boxes and buttons which are used to input a Patient's data and to apply it to the algorithm.The algorithm itself is being
+ *				called by calling the class Calculations (using the method calc). This class sends the user input over to the calc algorithm and gives back
+ *				a percentage when the apply button is pressed. There is also a button that can also be found at the end which takes the user back to the main menu of the code.
  */
 
 package com.javaassignment.test;
@@ -181,7 +182,7 @@ public class GUI_Patient extends JFrame implements ActionListener
 	    	
 	    	
 	    	
-	    	
+	    	//the the button pressed is apply, the following happens
 	    	if(anything.getSource() == apply)
 	    	{
 	    		//if name is blank, give an error message
@@ -189,15 +190,16 @@ public class GUI_Patient extends JFrame implements ActionListener
 	    		{
 	    			System.out.println("Please input a name into the text box");
 	    		}
-	    		//else if the name isn't blank, go through to mybase
 	    		
 	    		
 	    		System.out.println("Patient data has been saved");
 	    		
-	    		//when the apply button is pressed, the user info is passed into calc
+	    		//when the apply button is pressed, the user info is passed into the Calculations class and into the calc method.
 	    		
 	    		Calculations myCalc = new Calculations((String) tempval.getSelectedItem(),(String) acheval.getSelectedItem(), (String) throatval.getSelectedItem());
+	    		//a new variable called percentage stores the float return of calc
 	    		percentage = myCalc.calc();
+	    		//a pop-up menu comes up and shows the following message with the percentage of tonsilitis depending on the user input
 	    		JOptionPane.showMessageDialog(this, "The chance of you having tonsilitis is: " + (percentage * 100) + "%");
 	    		
 	    	}
